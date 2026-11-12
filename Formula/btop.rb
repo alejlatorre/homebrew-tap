@@ -13,6 +13,7 @@ class Btop < Formula
   desc "Resource monitor (fork con la memoria comprimida de macOS contada como usada)"
   homepage "https://github.com/alejlatorre/btop/tree/mac"
   url "https://github.com/alejlatorre/btop/archive/refs/tags/v1.4.8-mac.1.tar.gz"
+  version "1.4.8-mac.1"
   sha256 "d06b0d7b7aadadafdc23a9c58a4e41f920c9bd9037b4c6cdf5da12d7957106ca"
   license "Apache-2.0"
   head "https://github.com/alejlatorre/btop.git", branch: "mac"
