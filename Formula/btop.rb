@@ -1,20 +1,22 @@
 # btop con los fixes de memoria de macOS que upstream todavía no mergeó.
 #
 # Es la fórmula de homebrew-core (v1.4.8) apuntando a la rama `mac` del fork
-# alejlatorre/btop, que hoy es v1.4.8 + aristocratos/btop#1801: la memoria
-# comprimida cuenta como usada y tiene su propia fila. Sin eso, en una Mac con
-# el swap lleno btop marca la mitad de la RAM que usa Monitor de Actividad.
+# alejlatorre/btop, que hoy es v1.4.8 + aristocratos/btop#1801 (la memoria
+# comprimida tiene su propia fila) + un commit propio: "Used" se calcula como
+# Monitor de Actividad, total − libre − archivos en caché. Sin eso, en una Mac
+# con el swap lleno btop marca la mitad de la RAM que usa Monitor de Actividad,
+# y con #1801 solo, ~4 GiB menos.
 #
 # Se instala con el nombre completo (alejlatorre/tap/btop). Comparte la carpeta
 # del Cellar con el btop de homebrew-core, así que hay que desinstalar ese
 # primero. El día que upstream mergee el fix, se borra esta fórmula y se vuelve
 # al btop de siempre.
 class Btop < Formula
-  desc "Resource monitor (fork con la memoria comprimida de macOS contada como usada)"
+  desc "Resource monitor (fork con la memoria usada de macOS como Monitor de Actividad)"
   homepage "https://github.com/alejlatorre/btop/tree/mac"
-  url "https://github.com/alejlatorre/btop/archive/refs/tags/v1.4.8-mac.1.tar.gz"
-  version "1.4.8-mac.1"
-  sha256 "d06b0d7b7aadadafdc23a9c58a4e41f920c9bd9037b4c6cdf5da12d7957106ca"
+  url "https://github.com/alejlatorre/btop/archive/refs/tags/v1.4.8-mac.2.tar.gz"
+  version "1.4.8-mac.2"
+  sha256 "11e76fb3c9157d168624e01af5b9ce34b4da7763fe1e141d1886c324cbb356a9"
   license "Apache-2.0"
   head "https://github.com/alejlatorre/btop.git", branch: "mac"
 
